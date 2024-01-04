@@ -1,0 +1,14 @@
+<div
+    [style.width]="width + units"
+    [style.height]="height + units"
+    [class.circle]="isCircle"
+>
+    <img
+        [style.width]="width + units"
+        [style.height]="height + units"
+        [style.border-radius]="radius + units"
+        [style.object-fit]="objectFit"
+        alt="{{ alt }}"
+        src="{{ image }}"
+    />
+</div>

@@ -1,0 +1,27 @@
+.project-tree
+{
+    font-family:"DejaVu Sans Mono", monospace;
+
+    .directory
+    {
+        display: inline;
+        color: rgb(0, 255, 0);
+    }
+
+    .directory-path
+    {
+        display: inline;
+        color: rgb(0, 255, 0);
+    }
+
+    .spacer
+    {
+        display: inline;
+    }
+
+    .file
+    {
+        display: inline;
+        color: rgb(0, 255, 0);
+    }
+}

@@ -1,0 +1,27 @@
+<div
+    class="text-wrapper"
+    [style.text-align]="align"
+    [style.color]="textColor"
+>
+    <div
+        *ngFor="let line of lines"
+        class="line"
+        [style.color]="textColor"
+        [style.font-family]="font"
+        [style.font-size.rem]="size"
+        [style.opacity]="opacity"
+        [style.padding-left]="setPaddingLeft()"
+        [style.padding-right]="setPaddingRight()"
+        [style.padding-top]="setPaddingTop()"
+        [style.padding-bottom]="setPaddingBottom()"
+        [style.margin-left]="setMarginLeft()"
+        [style.margin-right]="setMarginRight()"
+        [style.margin-top]="setMarginTop()"
+        [style.margin-bottom]="setMarginBottom()"
+        [style.weight]="weight"
+        [style.text-decoration]="decoration"
+        [style.display]="display"
+        [innerHtml]="text"
+    >
+    </div>
+</div>

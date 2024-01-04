@@ -1,0 +1,55 @@
+/* Primary choices */
+$cyan: #00FFFF;
+$picton-blue: #00A6FB; // chosen
+
+/* Secondary choices */
+$black: #0A0908; //cyan picton-blue
+
+/* Tertiary choices */
+$zaffre: #3626A7; //picton-blue chosen
+$persian-green: #00A896; //picton-blue
+$ice-blue: #97EFE9; //picton-blue
+$dark-cyan: #3E8989; //cyan
+$cornflower-blue: #7494EA; //cyan
+$silver-lake-blue: #5688C7; //cyan
+$cool-gray: #8789C0; //cyan
+$ucla-blue: #3E78B2; //cyan
+$teal: #1F7A8C; //cyan
+$celestial-blue: #009DDC; //cyan
+$lilac: #B594B6; //cyan
+$lilac-2: #BDA0BC; //cyan
+$pink-lavender: #DBBADD; //cyan
+$cerulean: #40798C; //cyan
+
+$theme: dark;
+$primary: $black;
+$secondary: $zaffre;
+$tertiary: $picton-blue;
+$quaternary: $cyan;
+
+@function teal($alpha)
+{
+    @return rgba(31, 122, 140, $alpha);
+}
+
+@function cyan($alpha)
+{
+    @return rgba(0, 255, 255, $alpha);
+}
+
+@if $theme == dark
+{
+    $primary: $black;
+    $secondary: white; // lighten($cyan, 0%);
+    $tertiary: $teal; //darken($cyan, 30%);
+    $quaternary: $cyan;
+}
+@else if $theme == light
+{
+    $primary: white;
+    $secondary: $black;
+    $tertiary: $picton-blue;
+}
+
+/* Portfolio card variables */
+$card-width: 15rem;

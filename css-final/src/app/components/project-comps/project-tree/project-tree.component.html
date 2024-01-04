@@ -1,0 +1,108 @@
+<div
+    *ngIf="show"
+    class="project-tree"
+>
+    <p
+        *ngIf="depth > 1 && isFinal"
+        class="directory-path"
+    >
+        │
+    </p>
+    <p
+        *ngIf="depth > 1 && !isFinal"
+        class="spacer"
+    >
+        -
+    </p>
+    <p
+        *ngFor='let i of counter'
+        class="spacer"
+    >
+        -
+    </p>
+    <p
+        *ngIf="depth"
+        class="directory-path"
+    >
+        {{ path }}
+    </p>
+    <p
+        class="directory"
+        style="cursor: pointer;"
+        (click)="showChildren = !showChildren"
+    >
+        {{ directory.name }}
+    </p>
+    <div
+        *ngIf="showChildren"
+    >
+        <div
+            *ngFor="let file of directory.fileList; let i = index"
+        >
+            <p
+                *ngIf="depth > 1 && isFinal"
+                class="directory-path"
+            >
+                │
+            </p>
+            <p
+                *ngIf="depth > 1 && !isFinal"
+                class="spacer"
+            >
+                -
+            </p>
+            <p
+                class="spacer"
+            >
+                -
+            </p>
+            <p
+                *ngIf="depth > 1 && !nestedIsFinal"
+                class="directory-path"
+            >
+                │
+            </p>
+            <p
+                *ngIf="depth > 1 && nestedIsFinal"
+                class="spacer"
+            >
+                -
+            </p>
+
+            <p
+                class="spacer"
+            >
+                -
+            </p>
+            <p
+                *ngIf="i < directory.fileList.length - 1"
+                class="directory-path"
+            >
+                ├──
+            </p>
+            <p
+                *ngIf="i === directory.fileList.length - 1"
+                class="directory-path"
+            >
+                └──
+            </p>
+            <a
+                href="{{ file.link }}"
+                target="_blank"
+            >
+                <p
+                    class="file"
+                >
+                    {{ file.name }}
+                </p>
+            </a>
+        </div>
+    </div>
+    <app-project-tree
+        *ngFor="let subDir of directory.dirList"
+        [depth]="depth + 1"
+        [directory]="subDir"
+        [show]="showChildren"
+        [subDir]="subDir"
+    ></app-project-tree>
+</div>

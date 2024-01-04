@@ -1,6 +1,11 @@
-# CssFinal
+# Codedex CSS Final
+
+## About
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+
+This is new version of my personal portfolio site I'm using for the codedex css course final.
+Whether I use this or not, idk yet lol but I want to take an even more minimalistic approach to this than my last one. Hope you enjoy!
 
 ## Development server
 
