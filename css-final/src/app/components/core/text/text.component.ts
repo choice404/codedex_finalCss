@@ -110,10 +110,10 @@ export class TextComponent {
     public setMarginTop()
     {
         if(this.marginY != "auto")
-        {
             return this.marginY + this.units
-        }
-        return this.marginTop + this.units
+        if(this.marginTop != "auto")
+            return this.marginTop + this.units
+        return "auto"
     }
 
     public setMarginRight()

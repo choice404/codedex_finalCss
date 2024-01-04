@@ -1,1 +1,52 @@
-<p>project-tree2 works!</p>
+<div
+    class="project-wrapper"
+>
+    <p
+        class="project-indent"
+        [innerHTML]="indent"
+    >
+    </p>
+    <p
+        *ngIf="last"
+        class="project-path"
+    >└── </p>
+    <p
+        *ngIf="!last"
+        class="project-path"
+    >├── </p>
+
+    <p
+        *ngIf="directory.type === 'dir'"
+        class="project-name"
+        (click)="toggleCollapse()"
+        style="cursor: pointer;"
+    >{{ directory.name }}</p>
+    <a
+        href="{{ directory.link }}"
+        target="_blank"
+        *ngIf="directory.type === 'file'"
+        class="project-name"
+        style="cursor: pointer;"
+    >{{ directory.name }}</a>
+
+    <div
+        *ngFor="let item of directory.items; let i = index"
+    >
+        <div
+            *ngIf="collapsed"
+        >
+            <app-project-tree2
+                *ngIf="item.type === 'dir'"
+                [directory]="item"
+                [indent]="newIndent"
+                [last]="i === directory.items.length - 1"
+            ></app-project-tree2>
+            <app-project-tree2
+                *ngIf="item.type === 'file'"
+                [directory]="item"
+                [indent]="newIndent"
+                [last]="i === directory.items.length - 1"
+            ></app-project-tree2>
+        </div>
+    </div>
+</div>

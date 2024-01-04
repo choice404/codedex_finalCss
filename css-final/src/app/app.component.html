@@ -1,29 +1,41 @@
-<app-text
-    [text]="name.startText"
-    [marginLeft]="'4'"
-    [marginTop]="'2'"
-    [size]="3"
-    [color]="'0 150 0'"
-    [font]="'\'DejaVu Sans Mono\', monospace'"
-></app-text>
-
 <div
-    class="about-wrapper"
+    class="app-wrapper"
 >
-    <app-text
-        [text]="desc.startText"
-        [marginTop]="'1'"
-        [paddingX]="'4'"
-        [size]="1.2"
-        [color]="'0 150 0'"
-        [font]="'\'DejaVu Sans Mono\', monospace'"
-    ></app-text>
-</div>
+    <div
+        class="title-wrapper"
+    >
+        <app-text
+            [text]="name.startText"
+            [marginLeft]="'4'"
+            [marginTop]="'2'"
+            [size]="3"
+            [color]="'0 150 0'"
+            [font]="'\'DejaVu Sans Mono\', monospace'"
+        ></app-text>
 
-<div
-    class="projects-wrapper"
->
-    <app-project-tree
-        [directory]="projects"
-    ></app-project-tree>
+        <app-text
+            [text]="desc.startText"
+            [marginTop]="'2'"
+            [paddingX]="'4'"
+            [size]="1.2"
+            [color]="'0 150 0'"
+            [font]="'\'DejaVu Sans Mono\', monospace'"
+        ></app-text>
+    </div>
+
+    <div
+        class="projects-wrapper"
+    >
+        <app-project-tree2
+            [directory]="project"
+        ></app-project-tree2>
+    </div>
+
+    <div
+        class="socials-wrapper"
+    >
+        <app-project-tree2
+            [directory]="socials"
+        ></app-project-tree2>
+    </div>
 </div>
