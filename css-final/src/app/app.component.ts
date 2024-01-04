@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Directory2 } from './interfaces/directory2';
+import { Directory } from './interfaces/directory';
 
 @Component({
     selector: 'app-root',
@@ -9,32 +9,38 @@ import { Directory2 } from './interfaces/directory2';
 export class AppComponent {
     title: string = 'css-final';
 
-    tree: Directory2 = {
+    tree: Directory = {
         name: "/",
         type: "dir",
+        collapsed: false,
         items: [
             {
                 name: "projects",
                 type: "dir",
+                collapsed: true,
                 items: [
                     {
                         name: "web",
                         type: "dir",
+                        collapsed: true,
                         items: [
                             {
                                 name: "pomodoro",
                                 type: "dir",
+                                collapsed: false,
                                 items: [
                                     {
                                         name: "github",
                                         type: "file",
                                         link: "https://github.com/choisauce/ng_pomodoro",
+                                        collapsed: false,
                                         items: [],
                                     },
                                     {
                                         name: "demo",
                                         type: "file",
                                         link: "https://pomodoro-xi-five.vercel.app/",
+                                        collapsed: false,
                                         items: [],
                                     },
                                 ],
@@ -44,14 +50,17 @@ export class AppComponent {
                     {
                         name: "CLI",
                         type: "dir",
+                        collapsed: true,
                         items: [
                             {
                                 name: "choice-project-manager",
                                 type: "dir",
+                                collapsed: false,
                                 items: [
                                     {
                                         name: "github",
                                         type: "file",
+                                        collapsed: false,
                                         link: "https://github.com/choisauce/choice-project-manager",
                                         items: [],
                                     },
@@ -60,10 +69,12 @@ export class AppComponent {
                             {
                                 name: "TuiToy",
                                 type: "dir",
+                                collapsed: false,
                                 items: [
                                     {
                                         name: "github",
                                         type: "file",
+                                        collapsed: false,
                                         link: "https://github.com/choisauce/tuitoy",
                                         items: [],
                                     },
@@ -72,10 +83,12 @@ export class AppComponent {
                             {
                                 name: "The Great Christmas Rescue",
                                 type: "dir",
+                                collapsed: false,
                                 items: [
                                     {
                                         name: "github",
                                         type: "file",
+                                        collapsed: false,
                                         link: "https://github.com/choisauce/codedex_holiday_hackathon",
                                         items: [],
                                     },
@@ -88,34 +101,40 @@ export class AppComponent {
             {
                 name: "socials",
                 type: "dir",
+                collapsed: true,
                 items: [
                     {
                         name: "github",
                         type: "file",
+                        collapsed: false,
                         link: "https://github.com/choisauce",
                         items: [],
                     },
                     {
                         name: "linkedin",
                         type: "file",
+                        collapsed: false,
                         link: "https://www.linkedin.com/in/choisauce/",
                         items: [],
                     },
                     {
                         name: "instagram",
                         type: "file",
+                        collapsed: false,
                         link: "https://www.instagram.com/lysus20/",
                         items: [],
                     },
                     {
                         name: "twitter",
                         type: "file",
+                        collapsed: false,
                         link: "https://twitter.com/lysus20",
                         items: [],
                     },
                     {
                         name: "youtube",
                         type: "file",
+                        collapsed: false,
                         link: "https://www.youtube.com/channel/UCYwtbThul9_03UhjAvA6Ddg",
                         items: [],
                     },

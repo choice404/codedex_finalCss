@@ -1,108 +1,52 @@
 <div
-    *ngIf="show"
-    class="project-tree"
+    class="project-wrapper"
 >
     <p
-        *ngIf="depth > 1 && isFinal"
-        class="directory-path"
+        class="project-indent"
+        [innerHTML]="indent"
     >
-        │
     </p>
     <p
-        *ngIf="depth > 1 && !isFinal"
-        class="spacer"
-    >
-        -
-    </p>
+        *ngIf="last"
+        class="project-path"
+    >└── </p>
     <p
-        *ngFor='let i of counter'
-        class="spacer"
-    >
-        -
-    </p>
+        *ngIf="!last"
+        class="project-path"
+    >├── </p>
+
     <p
-        *ngIf="depth"
-        class="directory-path"
-    >
-        {{ path }}
-    </p>
-    <p
-        class="directory"
+        *ngIf="directory.type === 'dir'"
+        class="project-name"
+        (click)="toggleCollapse()"
         style="cursor: pointer;"
-        (click)="showChildren = !showChildren"
-    >
-        {{ directory.name }}
-    </p>
+    >{{ directory.name }}</p>
+    <a
+        href="{{ directory.link }}"
+        target="_blank"
+        *ngIf="directory.type === 'file'"
+        class="project-name"
+        style="cursor: pointer;"
+    >{{ directory.name }}</a>
+
     <div
-        *ngIf="showChildren"
+        *ngFor="let item of directory.items; let i = index"
     >
         <div
-            *ngFor="let file of directory.fileList; let i = index"
+            *ngIf="!directory.collapsed"
         >
-            <p
-                *ngIf="depth > 1 && isFinal"
-                class="directory-path"
-            >
-                │
-            </p>
-            <p
-                *ngIf="depth > 1 && !isFinal"
-                class="spacer"
-            >
-                -
-            </p>
-            <p
-                class="spacer"
-            >
-                -
-            </p>
-            <p
-                *ngIf="depth > 1 && !nestedIsFinal"
-                class="directory-path"
-            >
-                │
-            </p>
-            <p
-                *ngIf="depth > 1 && nestedIsFinal"
-                class="spacer"
-            >
-                -
-            </p>
-
-            <p
-                class="spacer"
-            >
-                -
-            </p>
-            <p
-                *ngIf="i < directory.fileList.length - 1"
-                class="directory-path"
-            >
-                ├──
-            </p>
-            <p
-                *ngIf="i === directory.fileList.length - 1"
-                class="directory-path"
-            >
-                └──
-            </p>
-            <a
-                href="{{ file.link }}"
-                target="_blank"
-            >
-                <p
-                    class="file"
-                >
-                    {{ file.name }}
-                </p>
-            </a>
+            <app-project-tree
+                *ngIf="item.type === 'dir'"
+                [directory]="item"
+                [indent]="newIndent"
+                [last]="i === directory.items.length - 1"
+            ></app-project-tree>
+            <app-project-tree
+                *ngIf="item.type === 'file'"
+                [directory]="item"
+                [indent]="newIndent"
+                [last]="i === directory.items.length - 1"
+            ></app-project-tree>
         </div>
     </div>
-    <app-project-tree
-        *ngFor="let subDir of directory.dirList"
-        [depth]="depth + 1"
-        [directory]="subDir"
-        [show]="showChildren"
-        [subDir]="subDir"
-    ></app-project-tree>
 </div>

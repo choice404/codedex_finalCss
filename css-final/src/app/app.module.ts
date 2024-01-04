@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { TextComponent } from './components/core/text/text.component';
 import { ImageComponent } from './components/core/image/image.component';
 import { ProjectTreeComponent } from './components/project-comps/project-tree/project-tree.component';
-import { ProjectTree2Component } from './components/project-comps/project-tree2/project-tree2.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +13,6 @@ import { ProjectTree2Component } from './components/project-comps/project-tree2/
     TextComponent,
     ImageComponent,
     ProjectTreeComponent,
-    ProjectTree2Component,
   ],
   imports: [
     BrowserModule,

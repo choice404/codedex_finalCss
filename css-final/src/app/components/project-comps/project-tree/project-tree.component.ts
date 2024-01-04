@@ -7,43 +7,27 @@ import { Directory } from '../../../interfaces/directory';
   styleUrls: ['./project-tree.component.scss']
 })
 export class ProjectTreeComponent {
-    @Input() depth: number = 0;
-    @Input() recurse: number = 0;
-    @Input() show: boolean = true;
-    @Input() subDir: any = {};
-    @Input() directory: Directory = {
-        name: "",
-        dirList: [],
-        fileList: [],
-        isFinal: false,
-    }
+    @Input() directory: Directory = {} as Directory;
+    @Input() last: boolean = true;
+    @Input() indent: string = "";
 
-    showChildren: boolean = true;
-    isFinal: boolean = false;
-    nestedIsFinal: boolean = false;
-    counter: number[] = []
-    counter2: number[] = []
-    path: string = "├── "
-    filePath: string = "├── "
+    newIndent: string = "";
 
     ngOnInit(): void
     {
-        this.showChildren = this.show;
-        this.counter = Array.from({ length: this.depth - 1 });
-        this.counter2 = Array.from({ length: this.depth + 1 });
-        this.isFinal = this.subDir.isFinal
-        if(this.directory.isFinal)
+        if(this.last)
         {
-            this.nestedIsFinal = this.directory.isFinal
+            this.newIndent = this.indent + "&nbsp;&nbsp;&nbsp;&nbsp;";
         }
-        if(this.subDir.isFinal)
-            this.path = "└── ";
-        if(this.depth < 1)
-            this.depth = 0;
+        else
+        {
+            this.newIndent = this.indent + "│&nbsp;&nbsp;&nbsp;";
+        }
     }
 
-    onClick()
+    toggleCollapse(): void
     {
-        this.showChildren != this.showChildren;
+        this.directory.collapsed = !this.directory.collapsed;
     }
+
 }
