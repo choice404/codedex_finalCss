@@ -9,112 +9,117 @@ import { Directory2 } from './interfaces/directory2';
 export class AppComponent {
     title: string = 'css-final';
 
-    project: Directory2 = {
-        name: "projects",
+    tree: Directory2 = {
+        name: "/",
         type: "dir",
         items: [
             {
-                name: "web",
+                name: "projects",
                 type: "dir",
                 items: [
                     {
-                        name: "pomodoro",
+                        name: "web",
                         type: "dir",
                         items: [
                             {
-                                name: "github",
-                                type: "file",
-                                link: "https://github.com/choisauce/ng_pomodoro",
-                                items: [],
+                                name: "pomodoro",
+                                type: "dir",
+                                items: [
+                                    {
+                                        name: "github",
+                                        type: "file",
+                                        link: "https://github.com/choisauce/ng_pomodoro",
+                                        items: [],
+                                    },
+                                    {
+                                        name: "demo",
+                                        type: "file",
+                                        link: "https://pomodoro-xi-five.vercel.app/",
+                                        items: [],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        name: "CLI",
+                        type: "dir",
+                        items: [
+                            {
+                                name: "choice-project-manager",
+                                type: "dir",
+                                items: [
+                                    {
+                                        name: "github",
+                                        type: "file",
+                                        link: "https://github.com/choisauce/choice-project-manager",
+                                        items: [],
+                                    },
+                                ],
                             },
                             {
-                                name: "demo",
-                                type: "file",
-                                link: "https://pomodoro-xi-five.vercel.app/",
-                                items: [],
+                                name: "TuiToy",
+                                type: "dir",
+                                items: [
+                                    {
+                                        name: "github",
+                                        type: "file",
+                                        link: "https://github.com/choisauce/tuitoy",
+                                        items: [],
+                                    },
+                                ],
+                            },
+                            {
+                                name: "The Great Christmas Rescue",
+                                type: "dir",
+                                items: [
+                                    {
+                                        name: "github",
+                                        type: "file",
+                                        link: "https://github.com/choisauce/codedex_holiday_hackathon",
+                                        items: [],
+                                    },
+                                ],
                             },
                         ],
                     },
                 ],
             },
             {
-                name: "CLI",
+                name: "socials",
                 type: "dir",
                 items: [
                     {
-                        name: "choice-project-manager",
-                        type: "dir",
-                        items: [
-                            {
-                                name: "github",
-                                type: "file",
-                                link: "https://github.com/choisauce/choice-project-manager",
-                                items: [],
-                            },
-                        ],
+                        name: "github",
+                        type: "file",
+                        link: "https://github.com/choisauce",
+                        items: [],
                     },
                     {
-                        name: "TuiToy",
-                        type: "dir",
-                        items: [
-                            {
-                                name: "github",
-                                type: "file",
-                                link: "https://github.com/choisauce/tuitoy",
-                                items: [],
-                            },
-                        ],
+                        name: "linkedin",
+                        type: "file",
+                        link: "https://www.linkedin.com/in/choisauce/",
+                        items: [],
                     },
                     {
-                        name: "The Great Christmas Rescue",
-                        type: "dir",
-                        items: [
-                            {
-                                name: "github",
-                                type: "file",
-                                link: "https://github.com/choisauce/codedex_holiday_hackathon",
-                                items: [],
-                            },
-                        ],
+                        name: "instagram",
+                        type: "file",
+                        link: "https://www.instagram.com/lysus20/",
+                        items: [],
+                    },
+                    {
+                        name: "twitter",
+                        type: "file",
+                        link: "https://twitter.com/lysus20",
+                        items: [],
+                    },
+                    {
+                        name: "youtube",
+                        type: "file",
+                        link: "https://www.youtube.com/channel/UCYwtbThul9_03UhjAvA6Ddg",
+                        items: [],
                     },
                 ],
-            },
-        ],
-    }
-
-    socials: Directory2 = {
-        name: "socials",
-        type: "dir",
-        items: [
-            {
-                name: "github",
-                type: "file",
-                link: "https://github.com/choisauce",
-                items: [],
-            },
-            {
-                name: "linkedin",
-                type: "file",
-                link: "https://www.linkedin.com/in/choisauce/",
-                items: [],
-            },
-            {
-                name: "instagram",
-                type: "file",
-                link: "https://www.instagram.com/lysus20/",
-                items: [],
-            },
-            {
-                name: "twitter",
-                type: "file",
-                link: "https://twitter.com/lysus20",
-                items: [],
-            },
-            {
-                name: "youtube",
-                type: "file",
-                link: "https://www.youtube.com/channel/UCYwtbThul9_03UhjAvA6Ddg",
-                items: [],
             },
         ],
     }
