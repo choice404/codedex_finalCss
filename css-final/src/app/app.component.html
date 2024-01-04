@@ -7,13 +7,13 @@
         <app-text
             [text]="name.startText"
             [size]="2"
-            [color]="'0 150 0'"
+            [color]="'0 205 205'"
             [font]="'\'DejaVu Sans Mono\', monospace'"
         ></app-text>
         <app-text
             [text]="desc.startText"
             [size]="1"
-            [color]="'0 150 0'"
+            [color]="'0 255 255'"
             [font]="'\'DejaVu Sans Mono\', monospace'"
         ></app-text>
     </div>
@@ -23,7 +23,23 @@
     >
         <app-project-tree
             [directory]="tree"
+            (specialEvent)="special($event)"
         ></app-project-tree>
     </div>
+    <audio
+        id="audio"
+        *ngIf="audioBool"
+        autoplay
+    >
+        <source
+            src="../assets/audio/woz_wav.mp3"
+            type="audio/mpeg"
+        >
+        Your browser does not support the audio element.
+    </audio>
+
+    <p
+        (click)="special('jig')"
+    >jig</p>
 
 </div>

@@ -8,6 +8,8 @@ import { Directory } from './interfaces/directory';
 })
 export class AppComponent {
     title: string = 'css-final';
+    audioBool: boolean = false;
+    private audio: HTMLAudioElement;
 
     tree: Directory = {
         name: "/",
@@ -138,6 +140,13 @@ export class AppComponent {
                         link: "https://www.youtube.com/channel/UCYwtbThul9_03UhjAvA6Ddg",
                         items: [],
                     },
+                    {
+                        name: "twitch",
+                        type: "file",
+                        collapsed: false,
+                        link: "https://www.twitch.tv/lysus20",
+                        items: [],
+                    },
                 ],
             },
         ],
@@ -168,10 +177,50 @@ export class AppComponent {
 
     nameInterval: any;
 
+    constructor()
+    {
+      this.audio = document.getElementById('audio') as HTMLAudioElement;
+    }
+
     ngOnInit(): void
     {
+        this.audio = document.getElementById('sansAudio') as HTMLAudioElement;
+        document.addEventListener('visibilitychange', this.handleVisibilityChange.bind(this));
         this.typing(this.name, this.fullName, 50);
         this.typing(this.desc, this.fullDescription, 10, true);
+    }
+
+    ngOnDestroy()
+    {
+        document.removeEventListener('visibilitychange', this.handleVisibilityChange.bind(this));
+    }
+
+    private handleVisibilityChange()
+    {
+        if(document.hidden)
+        {
+            this.pauseAudio();
+        }
+        else
+        {
+            this.playAudio()
+        }
+    }
+
+    private playAudio()
+    {
+        if(this.audio)
+        {
+            this.audio.play();
+        }
+    }
+
+    private pauseAudio()
+    {
+        if(this.audio)
+        {
+            this.audio.pause()
+        }
     }
 
     private typing(obj: { startText: string; }, finalText: string, interval: number, finish: boolean = false)
@@ -209,5 +258,12 @@ export class AppComponent {
               clearInterval(this.nameInterval);
           }
       }, interval);
+    }
+
+    public special(data: string): void
+    {
+        console.log(data);
+        // this.audio = !this.audio;
+        this.audioBool = !this.audioBool;
     }
 }

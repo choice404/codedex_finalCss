@@ -21,6 +21,12 @@
         (click)="toggleCollapse()"
         style="cursor: pointer;"
     >{{ directory.name }}</p>
+    <p
+        *ngIf="directory.type === 'special'"
+        class="project-name"
+        (click)="special('sp')"
+        style="cursor: pointer;"
+    >{{ directory.name }}</p>
     <a
         href="{{ directory.link }}"
         target="_blank"
@@ -36,13 +42,6 @@
             *ngIf="!directory.collapsed"
         >
             <app-project-tree
-                *ngIf="item.type === 'dir'"
-                [directory]="item"
-                [indent]="newIndent"
-                [last]="i === directory.items.length - 1"
-            ></app-project-tree>
-            <app-project-tree
-                *ngIf="item.type === 'file'"
                 [directory]="item"
                 [indent]="newIndent"
                 [last]="i === directory.items.length - 1"

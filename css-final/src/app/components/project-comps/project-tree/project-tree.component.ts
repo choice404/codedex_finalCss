@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Directory } from '../../../interfaces/directory';
 
 @Component({
@@ -10,6 +10,7 @@ export class ProjectTreeComponent {
     @Input() directory: Directory = {} as Directory;
     @Input() last: boolean = true;
     @Input() indent: string = "";
+    @Output() specialEvent = new EventEmitter<string>();
 
     newIndent: string = "";
 
@@ -30,4 +31,9 @@ export class ProjectTreeComponent {
         this.directory.collapsed = !this.directory.collapsed;
     }
 
+    special(data: string): void
+    {
+        console.log(data);
+        this.specialEvent.emit(data);
+    }
 }
