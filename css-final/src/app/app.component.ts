@@ -47,6 +47,20 @@ export class AppComponent {
                                     },
                                 ],
                             },
+                            {
+                                name: "portfolio",
+                                type: "dir",
+                                collapsed: false,
+                                items: [
+                                    {
+                                        name: "live",
+                                        type: "file",
+                                        collapsed: false,
+                                        link: "https://austinchoi.net",
+                                        items: [],
+                                    },
+                                ],
+                            },
                         ],
                     },
                     {
@@ -98,6 +112,27 @@ export class AppComponent {
                             },
                         ],
                     },
+                    {
+                        name: "low-level",
+                        type: "dir",
+                        collapsed: true,
+                        items: [
+                            {
+                                name: "brainfuck compiler",
+                                type: "dir",
+                                collapsed: false,
+                                items: [
+                                    {
+                                        name: "github",
+                                        type: "file",
+                                        collapsed: false,
+                                        link: "https://github.com/choisauce/BF_Compiler",
+                                        items: [],
+                                    }
+                                ]
+                            },
+                        ],
+                    }
                 ],
             },
             {
@@ -262,8 +297,6 @@ export class AppComponent {
 
     public special(data: string): void
     {
-        console.log(data);
-        // this.audio = !this.audio;
         this.audioBool = !this.audioBool;
     }
 }

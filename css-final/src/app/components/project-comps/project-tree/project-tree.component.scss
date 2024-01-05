@@ -1,28 +1,33 @@
 .project-wrapper
 {
     font-family:"DejaVu Sans Mono", monospace;
+    font-size: 1.2rem;
+    color: rgb(0, 205, 205);
 
-    .project-name
+    .project-name-wrapper
     {
         display: inline;
-        color: rgb(0, 205, 205);
+        padding: .4rem 0;
+        cursor: pointer;
+
+        .project-name
+        {
+          display: inline;
+        }
     }
 
     .project-item
     {
         display: inline;
-        color: rgb(0, 205, 205);
     }
 
     .project-path
     {
         display: inline;
-        color: rgb(0, 205, 205);
     }
 
-}
-.project-indent
-{
-    display: inline;
-    color: rgb(0, 205, 205);
+    .project-indent
+    {
+      display: inline;
+    }
 }

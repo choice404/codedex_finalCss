@@ -12,10 +12,12 @@ export class ProjectTreeComponent {
     @Input() indent: string = "";
     @Output() specialEvent = new EventEmitter<string>();
 
+    name: string = "";
     newIndent: string = "";
 
     ngOnInit(): void
     {
+        this.name = this.directory.name;
         if(this.last)
         {
             this.newIndent = this.indent + "&nbsp;&nbsp;&nbsp;&nbsp;";
@@ -31,9 +33,14 @@ export class ProjectTreeComponent {
         this.directory.collapsed = !this.directory.collapsed;
     }
 
-    special(data: string): void
+    onMouseEnter(): void
     {
-        console.log(data);
-        this.specialEvent.emit(data);
+        this.name = this.directory.name + " <";
     }
+
+    onMouseLeave(): void
+    {
+        this.name = this.directory.name;
+    }
+
 }

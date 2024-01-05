@@ -23,7 +23,6 @@
     >
         <app-project-tree
             [directory]="tree"
-            (specialEvent)="special($event)"
         ></app-project-tree>
     </div>
     <audio
@@ -38,8 +37,8 @@
         Your browser does not support the audio element.
     </audio>
 
-    <p
-        (click)="special('jig')"
-    >jig</p>
 
 </div>
+<p
+    (click)="special('jig')"
+>jig</p>
